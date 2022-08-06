@@ -19,11 +19,11 @@ nodes
 
 #print(nodes)
 
-first = df.groupby(['Bacteria','Sample'])['Number'].sum().reset_index()
+first = df.groupby(['Sample','Virusfamily'])['Number'].sum().reset_index()
 second = df.iloc[:,1:]
-#second = df.groupby(['VirusFamily','Sample'])['Number'].sum().reset_index()
+second = df.groupby(['VirusFamily','Host'])['Number'].sum().reset_index()
 first.columns = ['source','target','value']
-#second.columns = ['source','target','value']
+second.columns = ['source','target','value']
 result = pd.concat([first,second])
 result.head(0)
 
@@ -49,15 +49,15 @@ pic = (
 
     )
 ).add(
-             '',  # 图例名称
-             nodes,  # 传入节点数据
-             linkes,  # 传入边和流量数据
+             '',  
+             nodes,  
+             linkes, 
              #orient = 'vertical',
-             # 设置透明度、弯曲度、颜色
+  
              linestyle_opt = opts.LineStyleOpts(opacity = 0.5, curve = 0.5, color = "source"),
-             # 标签显示位置
+
              label_opts = opts.LabelOpts(position = "right",font_size = 0),
-             # 节点之前的距离
+
              node_gap = 70,
              node_align= 30,
              node_width= 300,
@@ -67,7 +67,7 @@ pic = (
 
 )
 
-pic.render('未抽平细菌7.12-1.html')
+pic.render('name.html')
 
 
 
