@@ -4,7 +4,7 @@ from pyecharts.charts import Sankey
 from pyecharts import options as opts
 
 
-df = pd.read_excel('G:\\data\\sankey\\7.11\\xijun-1.xls')
+df = pd.read_excel('site') #the position of your excel with the '.xls'
 df.head(0)
 
 nodes = []
@@ -45,7 +45,7 @@ pic = (
     Sankey(
     init_opts=opts.InitOpts(
         width='8000px',
-        height='10000px'
+        height='10000px'  
 
     )
 ).add(
