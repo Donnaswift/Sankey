@@ -9,7 +9,7 @@ df.head(0)
 
 nodes = []
 
-for i in range(2):
+for i in range(3):
     values = df.iloc[:,i].unique()
     for value in values:
         dic = {}
